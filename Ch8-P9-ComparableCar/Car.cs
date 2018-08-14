@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ch7_P1_SimpleException
+namespace Ch8_P9_ComparableCar
 {
-    class Car
+    class Car : IComparable
     {
         // Constant for maximum speed.
         public const int MaxSpeed = 100;
@@ -24,6 +24,10 @@ namespace Ch7_P1_SimpleException
             CarID = id;
         }
 
+        public override string ToString()
+        {
+            return string.Format("[ ID = {0}  ,  Car Name = {1}  ,  Current Speed = {2} ]",CarID , CarName , CurrentSpeed);
+        }
         // A car has-a radio.
         //private Radio theMusicBox = new Radio();
         // Constructors.
@@ -74,6 +78,30 @@ namespace Ch7_P1_SimpleException
                 }
                 else
                     Console.WriteLine("=> CurrentSpeed = {0}", CurrentSpeed);
+            }
+        }
+
+        public int CompareTo(object obj)
+        {
+            Car temp = obj as Car;
+            if (temp != null)
+            {
+                if (this.CarID > temp.CarID)
+                {
+                    return 1;
+                }
+                else if (this.CarID < temp.CarID)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Parameter is not a Car");
             }
         }
     }
