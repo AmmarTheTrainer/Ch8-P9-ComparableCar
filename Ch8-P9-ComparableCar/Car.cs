@@ -81,18 +81,20 @@ namespace Ch8_P9_ComparableCar
             Car temp = obj as Car;
             if (temp != null)
             {
-                if (this.CarID > temp.CarID)
-                {
-                    return 1;
-                }
-                else if (this.CarID < temp.CarID)
-                {
-                    return -1;
-                }
-                else
-                {
-                    return 0;
-                }
+                return this.CarID.CompareTo(temp.CarID); // you can also use built in function 
+
+                //if (this.CarID > temp.CarID)
+                //{
+                //    return 1;
+                //}
+                //else if (this.CarID < temp.CarID)
+                //{
+                //    return -1;
+                //}
+                //else
+                //{
+                //    return 0;
+                //}
             }
             else
             {
