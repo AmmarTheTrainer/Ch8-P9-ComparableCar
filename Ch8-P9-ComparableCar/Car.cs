@@ -15,19 +15,8 @@ namespace Ch8_P9_ComparableCar
         public string CarName { get; set; } = "";
         // Is the car still operational?
         private bool carIsDead;
-
         public int CarID { get; set; }
-        public Car(string name, int currSp, int id)
-        {
-            CurrentSpeed = currSp;
-            CarName = name;
-            CarID = id;
-        }
 
-        public override string ToString()
-        {
-            return string.Format("[ ID = {0}  ,  Car Name = {1}  ,  Current Speed = {2} ]",CarID , CarName , CurrentSpeed);
-        }
         // A car has-a radio.
         //private Radio theMusicBox = new Radio();
         // Constructors.
@@ -36,6 +25,12 @@ namespace Ch8_P9_ComparableCar
         {
             CurrentSpeed = speed;
             CarName = name;
+        }
+        public Car(string name, int currSp, int id)
+        {
+            CurrentSpeed = currSp;
+            CarName = name;
+            CarID = id;
         }
 
         public void CrankTunes(bool state)
@@ -104,5 +99,11 @@ namespace Ch8_P9_ComparableCar
                 throw new ArgumentException("Parameter is not a Car");
             }
         }
+
+        public override string ToString()
+        {
+            return string.Format("[ ID = {0}  ,  Car Name = {1}  ,  Current Speed = {2} ]", CarID, CarName, CurrentSpeed);
+        }
+
     }
 }
