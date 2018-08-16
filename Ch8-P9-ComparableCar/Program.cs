@@ -21,11 +21,29 @@ namespace Ch8_P9_ComparableCar
             myAutos[3] = new Car("Mel",   40, 4  );
             myAutos[4] = new Car("Chucky",40, 5  );
 
-            Array.Sort(myAutos);
+            //Array.Sort(myAutos);
 
-            foreach (var item in myAutos)
+            //foreach (var item in myAutos)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+            // Display current array.
+            Console.WriteLine("Here is the unordered set of cars:");
+            foreach (Car c in myAutos)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(c);
+            }
+
+            // Now, sort them using IComparable!
+            Array.Sort(myAutos);
+            Console.WriteLine();
+            // Display sorted array.
+            Console.WriteLine("Here is the ordered set of cars:");
+            foreach (Car c in myAutos)
+            {
+                Console.WriteLine(c);
             }
 
             Console.ReadLine();
